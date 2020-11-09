@@ -1,5 +1,6 @@
 package Gui;
 
+//import Gui.remove.fieldContructor;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -11,7 +12,6 @@ public class Interface {
     // Definering af variable
     // TODO: Fix adgangen til disser vars
     private static GUI gui;
-    private static GUI_Field[] fields;
     private static GUI_Player player1;
     private static GUI_Player player2;
 
@@ -20,16 +20,18 @@ public class Interface {
      * @param namePlayer1 Navnet af spiller 1
      * @param namePlayer2 Navnet af spiller 2
      */
-    public static void createGui(String namePlayer1, String namePlayer2, Field[] fieldList) {
+    public static void createGui(String namePlayer1, String namePlayer2) { // Field[] fieldList
 
         // Opretter fields der skal bruges i spillet.
 
-        fieldContructor contruct = new fieldContructor();
-        fields = contruct.Construct(fieldList);
+//        fieldContructor contruct = new fieldContructor();
+//        fields = contruct.Construct(fieldList);
+
+
 
         // Opretter gui elementet
-        gui = new GUI(fields, Color.WHITE);
-
+        //gui = new GUI(fields, Color.WHITE);
+        GUI gui = new GUI();
 
 
         //Opretter spillere til spillet
@@ -46,6 +48,7 @@ public class Interface {
 
     }
     public static void movePlayer(String playerName, int playerPos){
+        GUI_Field[] fields = gui.getFields();
 
         for (int i = 0; i < fields.length; i++) {
             fields[i].removeAllCars();

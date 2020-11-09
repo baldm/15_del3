@@ -4,10 +4,9 @@ import gui_fields.GUI_Field;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
 
-
 import java.awt.*;
 
-public class fieldContructor {
+public class fieldConstructor {
     public GUI_Field[] Construct(Field[] fieldList) {
 
 
