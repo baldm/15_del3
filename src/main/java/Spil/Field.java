@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Field {
-    private static String fieldName;
+    private String fieldName;
 
 
     public Field(String fileName, String language){
@@ -39,7 +39,7 @@ public class Field {
 
     }
 
-    public static String getFieldName() {
+    public String getFieldName() {
         return fieldName;
     }
 }
