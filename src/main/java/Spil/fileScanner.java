@@ -13,7 +13,7 @@ public class fileScanner {
     public fileScanner(String folder) {
         File allFields = new File("./" + folder);
 
-        String[] fieldNames = allFields.list();
+        fieldNames = allFields.list();
 
     }
 

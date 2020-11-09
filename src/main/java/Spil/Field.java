@@ -38,4 +38,8 @@ public class Field {
 
 
     }
+
+    public static String getFieldName() {
+        return fieldName;
+    }
 }
