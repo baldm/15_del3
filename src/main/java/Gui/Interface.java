@@ -20,13 +20,13 @@ public class Interface {
 
     /**
      * Laver laver et gui element
-     * @param Player playerobject 1
-     * @param Player playerobject 2
+     * @param playerOne playerobject 1
+     * @param playerTwo playerobject 2
      */
     public static void createGui(Player playerOne, Player playerTwo) {
 
         // Opretter gui elementet
-        GUI gui = new GUI();
+        gui = new GUI();
 
 
         //Opretter spillere til spillet
@@ -42,22 +42,17 @@ public class Interface {
         gui.addPlayer(guiPlayerTwo);
 
     }
-    public static void movePlayer(Player player, int playerPos){
+    public static void movePlayer(Player player){
         GUI_Field[] fields = gui.getFields();
 
         String playerName = player.getName();
 
-        // Legacy fra cdio 2 TODO: Opdater
-//        for (int i = 0; i < fields.length; i++) {
-//            fields[i].removeAllCars();
-//        }
 
-
-
+        // TODO: gør bedre
         if (playerName.equals(guiPlayerOne.getName())) {
-            fields[playerPos].setCar(guiPlayerOne, true);
+            fields[player.getPosition()].setCar(guiPlayerOne, true);
         } else if (playerName.equals(guiPlayerTwo.getName())) {
-            fields[playerPos].setCar(guiPlayerTwo, true);
+            fields[player.getPosition()].setCar(guiPlayerTwo, true);
         } else {
             throw new IllegalArgumentException("Player does not exist");
         }
@@ -82,17 +77,22 @@ public class Interface {
 
     /**
      * tilføjer en delta balance til player
-     * @param playerName String
+     * @param player playerObject
      * @param pointDelta int
      */
-    public static void addPlayerBalance(String playerName, int pointDelta) {
-        if (playerName.equals(player1.getName())) {
-            player1.setBalance(player1.getBalance()+pointDelta);
-        } else if (playerName.equals(player2.getName())) {
-            player2.setBalance(player2.getBalance()+pointDelta);
+    // TODO: gør bedre
+    public static void addPlayerBalance(Player player, int pointDelta) {
+        String playerName = player.getName();
+        if (playerName.equals(guiPlayerOne.getName())) {
+            guiPlayerOne.setBalance(guiPlayerOne.getBalance()+pointDelta);
+        } else if (playerName.equals(guiPlayerTwo.getName())) {
+            guiPlayerTwo.setBalance(guiPlayerTwo.getBalance()+pointDelta);
         } else {
             throw new IllegalArgumentException("Player does not exist");
         }
+    }
+    public static void displayMultiButtonMsg(String... args) {
+
     }
 
 }

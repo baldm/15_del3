@@ -5,7 +5,7 @@ package Spil;
 
 public class Player {
     private String name;
-    private Account account = new Account(0);
+    private final Account account = new Account(0);
     private int position = 0;
 
     public Player(String n, int money){
