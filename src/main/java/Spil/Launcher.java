@@ -13,9 +13,8 @@ public class Launcher {
 
 
         for(int i=0; i< fieldFileNames.length;i++){
-            Field test = new Field(fieldFileNames[i], lang);
-            System.out.println(test.getFieldName());
-            allFields[i] = test;
+
+            allFields[i] = new Field(fieldFileNames[i], lang);
         }
 
         System.out.println("test1 udprint: " + allFields[0].getFieldName());
