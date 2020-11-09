@@ -5,8 +5,8 @@ package Spil;
 
 public class Player {
     private String name;
-
     private Account account = new Account(0);
+    private int position = 0;
 
     public Player(String n, int money){
         this.name = n;
@@ -30,5 +30,13 @@ public class Player {
     // Retunerer antal penge spilleren har
     public int getMoney(){
         return account.getBalance();
+    }
+    // Retunerer positionen af playeren
+    public int getPosition(){
+        return position;
+    }
+    // Setter positionen af playeren
+    public void setPosition(int newPos){
+        position = newPos;
     }
 }
