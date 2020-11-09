@@ -5,6 +5,8 @@ import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
+// Nedenstående koder er en modificeret udgave, med udgangspunkt i:
+// CDIO2, af os, gruppe 15.
 
 public class Interface {
 
