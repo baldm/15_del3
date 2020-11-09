@@ -42,7 +42,7 @@ public class Interface {
         gui.addPlayer(guiPlayerTwo);
 
     }
-    public static void movePlayer(Player player, int Roll){
+    public static void movePlayer(Player player){
         GUI_Field[] fields = gui.getFields();
         String playerName = player.getName();
 
