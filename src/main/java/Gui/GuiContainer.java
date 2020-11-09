@@ -19,9 +19,10 @@ public class GuiContainer {
         ownable.setRent("1000");
         ownable.setBorder(Color.GREEN);
 
-        ownable.getRent();
+        System.out.println(ownable.getRent());
 
         GUI_Field field3 = gui.getFields()[3];
+
         System.out.println(field3.getSubText());
 
     }
