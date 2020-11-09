@@ -1,6 +1,7 @@
 package Spil;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class Launcher {
     public static void main(String[] args) {
@@ -11,6 +12,6 @@ public class Launcher {
         int fileCount = allFields.list().length;
         String[] fieldNames = allFields.list();
         System.out.println(fileCount);
-        System.out.println(fieldNames);
+        System.out.println(Arrays.toString(fieldNames));
     }
 }
