@@ -19,8 +19,8 @@ public class allGuiFuncTest {
 
         // Forskellige metoder i interface
         Interface.createGui(playerOne, playerTwo);
-        Interface.movePlayer(playerOne);
-        Interface.movePlayer(playerTwo);
+        Interface.movePlayer(playerOne, 0);
+        Interface.movePlayer(playerTwo, 0);
         Interface.displayMessage("Test af display message");
         Interface.addPlayerBalance(playerOne, 500);
 
@@ -36,7 +36,7 @@ public class allGuiFuncTest {
 
                 curPlayer.setPosition(curPlayer.getPosition()+roll);
 
-                Interface.movePlayer(playerList[i]);
+                Interface.movePlayer(curPlayer, roll);
             }
         }
 

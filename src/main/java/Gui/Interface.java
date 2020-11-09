@@ -42,11 +42,11 @@ public class Interface {
         gui.addPlayer(guiPlayerTwo);
 
     }
-    public static void movePlayer(Player player){
+    public static void movePlayer(Player player, int Roll){
         GUI_Field[] fields = gui.getFields();
-
         String playerName = player.getName();
 
+        fields[player.oldPosition].removeAllCars();
 
         // TODO: gør bedre
         if (playerName.equals(guiPlayerOne.getName())) {

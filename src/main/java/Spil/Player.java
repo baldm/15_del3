@@ -7,6 +7,7 @@ public class Player {
     private String name;
     private final Account account = new Account(0);
     private int position = 0;
+    public int oldPosition = 0;
 
     public Player(String n, int money){
         this.name = n;
@@ -37,6 +38,9 @@ public class Player {
     }
     // Setter positionen af playeren
     public void setPosition(int newPos){
-        position = newPos;
+        oldPosition = getPosition();
+        if (newPos >= 40) {position = newPos - 40;}
+        else { position = newPos; }
+
     }
 }
