@@ -71,9 +71,11 @@ public class Field {
             if(owner.ownsboth(groupID)){
                 player.addMoney(- 2*rent);
                 owner.addMoney(2*rent);
+                System.out.println("betalt 2 gang leje");
             } else {
                 player.addMoney(- rent);
                 owner.addMoney(rent);
+                System.out.println("betalt 1 gang leje");
             }
 
         }

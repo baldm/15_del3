@@ -24,5 +24,14 @@ public class Launcher {
 
         System.out.println("navn på fil 1: " + fieldFileNames[0]);
         System.out.println("navn på fil 2: "+fieldFileNames[1]);
+
+        Player adam = new Player("Adam", 9019201);
+        Player henrik = new Player("Henrik", 9021380);
+
+        allFields[0].setOwner(adam);
+        allFields[0].isOwned(henrik);
+        allFields[1].setOwner(adam);
+        allFields[1].isOwned(henrik);
+        allFields[0].isOwned(henrik);
     }
 }
