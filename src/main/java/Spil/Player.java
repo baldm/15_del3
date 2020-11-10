@@ -42,5 +42,10 @@ public class Player {
 
     public void setOwnedFields(int fieldID) {
         this.ownedFields[fieldID] = true;
+        for(int i=0, k=0; i<ownedFields.length;i+=2, k++){
+            if(ownedFields[i] && ownedFields[i+1]){
+                ownsboth[k] = true;
+            }
+        }
     }
 }
