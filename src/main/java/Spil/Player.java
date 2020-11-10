@@ -10,11 +10,11 @@ public class Player {
 
     private boolean[] ownsboth = new boolean[8];
 
-    private Field[] ownedFields = new Field[16];
+    private boolean[] ownedFields = new boolean[16];
 
     public Player(String n, int money){
         this.name = n;
-        account.addToBalance(money);
+        this.account.addToBalance(money);
     }
     // Definerer spillerens navn
     public void setName(String p_name){
@@ -38,5 +38,9 @@ public class Player {
 
     public boolean ownsboth(int groupID) {
         return ownsboth[groupID];
+    }
+
+    public void setOwnedFields(int fieldID) {
+        this.ownedFields[fieldID] = true;
     }
 }

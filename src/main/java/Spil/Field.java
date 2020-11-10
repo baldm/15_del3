@@ -57,10 +57,11 @@ public class Field {
     public void setOwner(Player player) {
         isOwned = true;
         owner = player;
+        owner.addMoney(-price);
+        owner.setOwnedFields(fieldID);
     }
 
     public void removeOwner(){
-        owner.addMoney(price/2);
         owner = null;
         isOwned = false;
     }
@@ -76,5 +77,13 @@ public class Field {
             }
 
         }
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getFieldID() {
+        return fieldID;
     }
 }
