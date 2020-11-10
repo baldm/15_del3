@@ -10,8 +10,9 @@ public class Field {
     private boolean isOwned = false;
     private Player owner;
     private int money;
-    private int fieldID;
+    private int groupID;
     private int price;
+
 
 
     public Field(String fileName, String language){
@@ -30,7 +31,7 @@ public class Field {
                     break;
                 default: fieldName = "Error!";
             }
-            fieldID = Integer.parseInt(prop.getProperty("fieldID"));
+            groupID = Integer.parseInt(prop.getProperty("groupID"));
 
             price = Integer.parseInt(prop.getProperty("price"));
 
@@ -63,8 +64,13 @@ public class Field {
 
     public void isOwned(Player player) {
         if(isOwned){
-            player.addMoney(- money);
-            owner.addMoney(money);
+            if(owner.ownsboth(groupID)){
+
+            } else {
+                player.addMoney(- money);
+                owner.addMoney(money);
+            }
+
         }
     }
 }
