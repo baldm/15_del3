@@ -7,6 +7,9 @@ import java.util.Properties;
 
 public class Field {
     private String fieldName;
+    private boolean isOwned = false;
+    private Player owner;
+    private int money;
 
 
     public Field(String fileName, String language){
@@ -41,5 +44,12 @@ public class Field {
 
     public String getFieldName() {
         return fieldName;
+    }
+
+    public void isOwned(Player player) {
+        if(isOwned){
+            player.addMoney(- money);
+            owner.addMoney(money);
+        }
     }
 }
