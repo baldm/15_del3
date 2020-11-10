@@ -38,6 +38,8 @@ public class Field {
 
             price = Integer.parseInt(prop.getProperty("price"));
 
+            rent = Integer.parseInt(prop.getProperty("rent"));
+
 
 
         } catch (FileNotFoundException e){
