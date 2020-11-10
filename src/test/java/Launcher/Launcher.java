@@ -1,7 +1,9 @@
-package Spil;
+package Launcher;
 
-import java.io.File;
-import java.util.Arrays;
+
+import Spil.Field;
+import Spil.Player;
+import Spil.fileScanner;
 
 public class Launcher {
     public static void main(String[] args) {

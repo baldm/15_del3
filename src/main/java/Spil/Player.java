@@ -36,16 +36,18 @@ public class Player {
     public int getMoney(){
         return account.getBalance();
     }
+
     // Retunerer positionen af playeren
     public int getPosition(){
         return position;
     }
+
     // Setter positionen af playeren
     public void setPosition(int newPos){
         oldPosition = getPosition();
         if (newPos >= 40) {position = newPos - 40;}
         else { position = newPos; }
-
+    }
 
     public boolean ownsboth(int groupID) {
         return ownsboth[groupID];
