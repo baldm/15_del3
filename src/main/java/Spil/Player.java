@@ -9,9 +9,13 @@ public class Player {
     private int position = 0;
     public int oldPosition = 0;
 
+    private boolean[] ownsboth = new boolean[8];
+
+    private boolean[] ownedFields = new boolean[16];
+
     public Player(String n, int money){
         this.name = n;
-        account.addToBalance(money);
+        this.account.addToBalance(money);
     }
     // Definerer spillerens navn
     public void setName(String p_name){
@@ -42,5 +46,17 @@ public class Player {
         if (newPos >= 40) {position = newPos - 40;}
         else { position = newPos; }
 
+
+    public boolean ownsboth(int groupID) {
+        return ownsboth[groupID];
+    }
+
+    public void setOwnedFields(int fieldID) {
+        this.ownedFields[fieldID] = true;
+        for(int i=0, k=0; i<ownedFields.length;i+=2, k++){
+            if(ownedFields[i] && ownedFields[i+1]){
+                ownsboth[k] = true;
+            }
+        }
     }
 }
