@@ -9,9 +9,10 @@ public class Field {
     private String fieldName;
     private boolean isOwned = false;
     private Player owner;
-    private int money;
+    private int rent;
     private int groupID;
     private int price;
+    private int fieldID;
 
 
 
@@ -32,6 +33,8 @@ public class Field {
                 default: fieldName = "Error!";
             }
             groupID = Integer.parseInt(prop.getProperty("groupID"));
+
+            fieldID = Integer.parseInt(prop.getProperty("fieldID"));
 
             price = Integer.parseInt(prop.getProperty("price"));
 
@@ -65,10 +68,11 @@ public class Field {
     public void isOwned(Player player) {
         if(isOwned){
             if(owner.ownsboth(groupID)){
-
+                player.addMoney(- 2*rent);
+                owner.addMoney(2*rent);
             } else {
-                player.addMoney(- money);
-                owner.addMoney(money);
+                player.addMoney(- rent);
+                owner.addMoney(rent);
             }
 
         }

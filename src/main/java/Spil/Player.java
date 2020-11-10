@@ -8,6 +8,10 @@ public class Player {
 
     private Account account = new Account(0);
 
+    private boolean[] ownsboth = new boolean[8];
+
+    private Field[] ownedFields = new Field[16];
+
     public Player(String n, int money){
         this.name = n;
         account.addToBalance(money);
@@ -30,5 +34,9 @@ public class Player {
     // Retunerer antal penge spilleren har
     public int getMoney(){
         return account.getBalance();
+    }
+
+    public boolean ownsboth(int groupID) {
+        return ownsboth[groupID];
     }
 }
