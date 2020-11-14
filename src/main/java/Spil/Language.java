@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Language {
+    private String language;
     private String test1;
     private String test2;
     private String test3;
@@ -19,6 +20,7 @@ public class Language {
 
             Properties prop = new Properties();
             prop.load(input);
+            language = prop.getProperty("language");
             test1 = prop.getProperty("test1");
             test2 = prop.getProperty("test2");
             test3 = prop.getProperty("test3");
@@ -49,5 +51,7 @@ public class Language {
 
     }
 
-
+    public String getLanguage() {
+        return language;
+    }
 }
