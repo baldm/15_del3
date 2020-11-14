@@ -26,7 +26,7 @@ public class Field {
 
             fieldName = prop.getProperty("name");
 
-            fieldName = language.getName(fileName);
+            fieldName = language.getName(fieldName);
 
             groupID = Integer.parseInt(prop.getProperty("groupID"));
 
@@ -86,4 +86,5 @@ public class Field {
     public int getFieldID() {
         return fieldID;
     }
+
 }

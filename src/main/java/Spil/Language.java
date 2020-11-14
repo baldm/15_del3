@@ -14,7 +14,7 @@ public class Language {
 
     public Language (String fileName) {
         try {
-            FileInputStream input = new FileInputStream("./Fields/" + fileName);
+            FileInputStream input = new FileInputStream("./Languages/" + fileName);
 
 
             Properties prop = new Properties();
@@ -34,15 +34,15 @@ public class Language {
 
     public String getName(String name){
         switch (name) {
-            case test1:
+            case "test1":
                 return test1;
-                break;
-            case test2:
+
+            case "test2":
                 return test2;
-                break;
-            case test3:
+
+            case "test3":
                 return test3;
-                break;
+
             default:
                 return "Error! Name not found!";
         }
