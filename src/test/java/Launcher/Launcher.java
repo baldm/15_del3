@@ -63,6 +63,12 @@ public class Launcher {
             allFieldsENG[i] = new Field(fieldFileNames[i], allLanguages[1]);
         }
         System.out.println(allFieldsDK[0].getFieldName());
+        System.out.println(allFieldsDK[1].getFieldName());
+        System.out.println(allFieldsDK[2].getFieldName());
+
+        System.out.println(allFieldsENG[0].getFieldName());
+        System.out.println(allFieldsENG[1].getFieldName());
+        System.out.println(allFieldsENG[2].getFieldName());
 
     }
 }
