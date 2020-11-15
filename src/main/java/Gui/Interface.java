@@ -1,5 +1,6 @@
 package Gui;
 
+import Spil.Dice;
 import Spil.Player;
 import gui_fields.*;
 import gui_main.GUI;
@@ -42,20 +43,25 @@ public class Interface {
         gui.addPlayer(guiPlayerTwo);
 
     }
-    public static void movePlayer(Player player){
-        GUI_Field[] fields = gui.getFields();
+    // Intern funktion til at finde gui objectes spiller
+    public static GUI_Player findGuiPlayer(Player player){
         String playerName = player.getName();
 
-        fields[player.oldPosition].removeAllCars();
-
-        // TODO: gør bedre
         if (playerName.equals(guiPlayerOne.getName())) {
-            fields[player.getPosition()].setCar(guiPlayerOne, true);
+            return guiPlayerOne;
         } else if (playerName.equals(guiPlayerTwo.getName())) {
-            fields[player.getPosition()].setCar(guiPlayerTwo, true);
+            return guiPlayerTwo;
         } else {
             throw new IllegalArgumentException("Player does not exist");
         }
+    }
+
+    // flyt eller fjern spiller object
+    public static void movePlayer(Player player){
+        gui.getFields()[player.getPosition()].setCar(findGuiPlayer(player), true);
+    }
+    public static void removePlayer(Player player) {
+        gui.getFields()[player.getPosition()].setCar(findGuiPlayer(player), false);
     }
 
     /**
@@ -68,28 +74,20 @@ public class Interface {
 
     /**
      * Setter dice på boarded
-     * @param roll1 int
-     * @param roll2 int
+     * @param diceOne dice object 1
+     * @param diceTwo dice object 2
      */
-    public static void setBoardDice(int roll1, int roll2) {
-        gui.setDice(roll1, roll2);
+    public static void setBoardDice(Dice diceOne, Dice diceTwo) {
+        gui.setDice(diceOne.getValue(), diceTwo.getValue());
     }
 
     /**
      * tilføjer en delta balance til player
      * @param player playerObject
-     * @param pointDelta int
      */
     // TODO: gør bedre
-    public static void addPlayerBalance(Player player, int pointDelta) {
-        String playerName = player.getName();
-        if (playerName.equals(guiPlayerOne.getName())) {
-            guiPlayerOne.setBalance(guiPlayerOne.getBalance()+pointDelta);
-        } else if (playerName.equals(guiPlayerTwo.getName())) {
-            guiPlayerTwo.setBalance(guiPlayerTwo.getBalance()+pointDelta);
-        } else {
-            throw new IllegalArgumentException("Player does not exist");
-        }
+    public static void setPlayerBalance(Player player) {
+        findGuiPlayer(player).setBalance(player.getMoney());
     }
     public static void displayMultiButtonMsg(String... args) {
 

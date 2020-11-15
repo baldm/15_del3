@@ -3,11 +3,12 @@ package Spil;
 // Nedenstående koder er en modificeret udgave, med udgangspunkt i:
 // CDIO1, af os, gruppe 15.
 
+import Gui.Interface;
+
 public class Player {
     private String name;
     private final Account account = new Account(0);
     private int position = 0;
-    public int oldPosition = 0;
 
     private boolean[] ownsboth = new boolean[8];
 
@@ -25,6 +26,7 @@ public class Player {
     // Tilføjer penge til nuværende formue
     public void addMoney(int p_money){
         account.addToBalance(p_money);
+        Interface.setPlayerBalance(this);
     }
 
     // Retunerer navn
@@ -44,9 +46,10 @@ public class Player {
 
     // Setter positionen af playeren
     public void setPosition(int newPos){
-        oldPosition = getPosition();
+        Interface.removePlayer(this);
         if (newPos >= 40) {position = newPos - 40;}
         else { position = newPos; }
+        Interface.movePlayer(this);
     }
 
     public boolean ownsboth(int groupID) {
