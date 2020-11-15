@@ -35,7 +35,7 @@ public class allGuiFuncTest {
 
                 curPlayer.setPosition(curPlayer.getPosition()+roll);
 
-                Interface.movePlayer(curPlayer);
+                Interface.movePlayer(curPlayer); // test
             }
         }
 
