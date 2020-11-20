@@ -60,6 +60,7 @@ public class Field {
     }
 
     public void removeOwner(){
+        owner.addMoney(price/2);
         owner = null;
         isOwned = false;
     }
