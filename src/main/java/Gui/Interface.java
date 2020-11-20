@@ -103,8 +103,16 @@ public class Interface {
         GUI_Field field = gui.getFields()[player.getPosition()];
         GUI_Ownable ownable = (GUI_Ownable) field;
         ownable.setOwnerName(player.getName());
-        String rentChoice = displayMultiButtonMsg("Hvad skal lejen være?", "100", "200", "300", "400", "500");
-        ownable.setRent(rentChoice);
+
+        // Kode der måske skal bruges i voksen version
+        //String rentChoice = displayMultiButtonMsg("Hvad skal lejen være?", "100", "200", "300", "400", "500");
+        //ownable.setRent(rentChoice);
+
+        // Finder tallene i feltes pris, og derefter sætter rent som det samme
+        String subtext = field.getSubText();
+        String rent = subtext.replaceAll("[^0-9]", "");
+        ownable.setRent(rent);
+
         ownable.setBorder(findGuiPlayer(player).getPrimaryColor());
 
     }
