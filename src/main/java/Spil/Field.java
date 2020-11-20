@@ -16,22 +16,18 @@ public class Field {
 
 
 
-    public Field(String fileName, String language){
+    public Field(String fileName, Language language){
         try {
             FileInputStream input = new FileInputStream("./Fields/"+ fileName);
 
 
             Properties prop = new Properties();
             prop.load(input);
-            switch (language){
-                case "Danish":
-                    fieldName = prop.getProperty("dkName");
-                    break;
-                case  "English":
-                    fieldName = prop.getProperty("engName");
-                    break;
-                default: fieldName = "Error!";
-            }
+
+            fieldName = prop.getProperty("name");
+
+            fieldName = language.getName(fieldName);
+
             groupID = Integer.parseInt(prop.getProperty("groupID"));
 
             fieldID = Integer.parseInt(prop.getProperty("fieldID"));
@@ -64,6 +60,7 @@ public class Field {
     }
 
     public void removeOwner(){
+        owner.addMoney(price/2);
         owner = null;
         isOwned = false;
     }
@@ -90,4 +87,5 @@ public class Field {
     public int getFieldID() {
         return fieldID;
     }
+
 }
