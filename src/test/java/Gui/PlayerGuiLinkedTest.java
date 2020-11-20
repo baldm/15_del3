@@ -21,6 +21,9 @@ public class PlayerGuiLinkedTest {
         playerOne.setPosition(5);
         playerOne.addMoney(500);
 
+        Interface.displayMultiButtonMsg("TEst 123123", "med", "dig", "hej");
+        Interface.setOwned(playerOne);
+
         while (true) {
             for (int i = 0; i < 2; i++) {
                 Player curPlayer = playerList[i];
