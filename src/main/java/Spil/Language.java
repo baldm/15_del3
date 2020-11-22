@@ -10,6 +10,8 @@ public class Language {
     private String test1;
     private String test2;
     private String test3;
+    private String cardText0;
+    private String cardText1;
 
 
 
@@ -24,6 +26,7 @@ public class Language {
             test1 = prop.getProperty("test1");
             test2 = prop.getProperty("test2");
             test3 = prop.getProperty("test3");
+
 
 
         } catch (FileNotFoundException e){
@@ -49,6 +52,18 @@ public class Language {
                 return "Error! Name not found!";
         }
 
+    }
+    public String getCardText(String name){
+            switch (name) {
+                case "CHANCE0":
+                    return cardText0;
+
+                case "CHANCE1":
+                    return cardText1;
+
+                default:
+                    return "Error! Name not found!";
+            }
     }
 
     public String getLanguage() {

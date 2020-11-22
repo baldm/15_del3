@@ -10,6 +10,7 @@ public class ChanceCard {
     private int cardID;
     private boolean forceBuy;
     private boolean drawCard;
+    private String cardText;
 
 
     public ChanceCard(String fileName, Language language){
@@ -22,7 +23,7 @@ public class ChanceCard {
 
             cardName = prop.getProperty("name");
 
-            //cardName = language.getName(cardName);
+            cardText = language.getCardText(cardName + cardID);
 
             cardID = Integer.parseInt(prop.getProperty("cardID"));
 
