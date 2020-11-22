@@ -40,4 +40,12 @@ public class ChanceCard {
 
 
     }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public int getCardID() {
+        return cardID;
+    }
 }
