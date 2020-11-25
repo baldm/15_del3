@@ -66,7 +66,7 @@ public class Field {
     }
 
     public void isOwned(Player player) {
-        if(isOwned){
+        if(isOwned && !player.equals(owner)){
             if(owner.ownsboth(groupID)){
                 player.addMoney(- 2*rent);
                 owner.addMoney(2*rent);

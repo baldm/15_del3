@@ -24,6 +24,7 @@ public class Language {
             test1 = prop.getProperty("test1");
             test2 = prop.getProperty("test2");
             test3 = prop.getProperty("test3");
+            //spillehallen = prop.getProperty("spillehallen");
 
 
         } catch (FileNotFoundException e){
@@ -44,6 +45,8 @@ public class Language {
 
             case "test3":
                 return test3;
+            //case "SPILLEHALLEN":
+               // return spillehallen;
 
             default:
                 return "Error! Name not found!";
