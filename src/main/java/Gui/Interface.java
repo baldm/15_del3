@@ -89,7 +89,31 @@ public class Interface {
     public static void setPlayerBalance(Player player) {
         findGuiPlayer(player).setBalance(player.getMoney());
     }
-    public static void displayMultiButtonMsg(String... args) {
+
+    /**
+     * displayer en besked på guien med et variable mængde valg
+     * @param msg String
+     * @param args Variable mængde strings
+     */
+    public static String displayMultiButtonMsg(String msg, String... args) {
+        String selection = gui.getUserSelection(msg, args);
+        return selection;
+    }
+    public static void setOwned(Player player) {
+        GUI_Field field = gui.getFields()[player.getPosition()];
+        GUI_Ownable ownable = (GUI_Ownable) field;
+        ownable.setOwnerName(player.getName());
+
+        // Kode der måske skal bruges i voksen version
+        //String rentChoice = displayMultiButtonMsg("Hvad skal lejen være?", "100", "200", "300", "400", "500");
+        //ownable.setRent(rentChoice);
+
+        // Finder tallene i feltes pris, og derefter sætter rent som det samme
+        String subtext = field.getSubText();
+        String rent = subtext.replaceAll("[^0-9]", "");
+        ownable.setRent(rent);
+
+        ownable.setBorder(findGuiPlayer(player).getPrimaryColor());
 
     }
 
