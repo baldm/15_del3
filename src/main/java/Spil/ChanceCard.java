@@ -14,8 +14,7 @@ public class ChanceCard {
 
     public ChanceCard(String fileName, Language language){
         try {
-            FileInputStream input = new FileInputStream("./Fields/"+ fileName);
-
+            FileInputStream input = new FileInputStream("./ChanceCards/"+ fileName);
 
             Properties prop = new Properties();
             prop.load(input);
