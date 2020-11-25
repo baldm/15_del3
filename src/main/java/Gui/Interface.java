@@ -28,8 +28,7 @@ public class Interface {
 
         // Opretter gui elementet
         gui = new GUI();
-
-
+        
         //Opretter spillere til spillet
         GUI_Car car = new GUI_Car();
         car.setPrimaryColor(Color.BLUE);
