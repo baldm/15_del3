@@ -6,6 +6,8 @@ import Spil.Language;
 import Spil.Player;
 import Spil.fileScanner;
 
+import java.util.Arrays;
+
 public class Launcher {
     public static void main(String[] args) {
 //        String lang = "English";
@@ -40,7 +42,7 @@ public class Launcher {
 
         // Language test
 
-        fileScanner languageScanner = new fileScanner("Languages");
+       /* fileScanner languageScanner = new fileScanner("Languages");
         fileScanner fieldScanner = new fileScanner("Fields");
 
         String[] languageFileNames = languageScanner.getFieldNames();
@@ -69,6 +71,56 @@ public class Launcher {
         System.out.println(allFieldsENG[0].getFieldName());
         System.out.println(allFieldsENG[1].getFieldName());
         System.out.println(allFieldsENG[2].getFieldName());
+*/
+        fileScanner languageScanner = new fileScanner("Languages");
+        fileScanner fieldScanner = new fileScanner("Fields");
+
+        String[] languageFileNames = languageScanner.getFieldNames();
+        Language[] allLanguages = new Language[languageFileNames.length];
+        String[] fieldFileNames = fieldScanner.getFieldNames();
+        Field[] allFieldsDK = new Field[24];
+        Field[] allFieldsDKTemp = new Field[fieldFileNames.length];
+        Field[] allFieldsENGTemp = new Field[fieldFileNames.length];
+        Field[] allFieldsENG = new Field[fieldFileNames.length];
+
+        // adding languages in allLanguages
+        for(int i=0; i< languageFileNames.length;i++){
+
+            allLanguages[i] = new Language(languageFileNames[i]);
+        }
+
+        // Tjekker på dansk
+        for(int i=0; i< fieldFileNames.length;i++){
+
+            allFieldsDKTemp[i] = new Field(fieldFileNames[i], allLanguages[0]);
+        }
+        for(int i=0; i< fieldFileNames.length;i++){
+
+            allFieldsDK[allFieldsDKTemp[i].getPos()] = allFieldsDKTemp[i];
+        }
+
+        for(int i=0; i< allFieldsDK.length;i++){
+
+            System.out.println(allFieldsDK[i].getFieldName());
+
+        }
+        System.out.printf("%n");
+        //Tjekker på engelsk
+
+        for(int i=0; i< fieldFileNames.length;i++){
+
+            allFieldsENGTemp[i] = new Field(fieldFileNames[i], allLanguages[1]);
+        }
+        for(int i=0; i< fieldFileNames.length;i++){
+
+            allFieldsENG[allFieldsENGTemp[i].getPos()] = allFieldsENGTemp[i];
+        }
+
+        for(int i=0; i< allFieldsENG.length;i++){
+
+            System.out.println(allFieldsENG[i].getFieldName());
+
+        }
 
     }
 }

@@ -13,6 +13,7 @@ public class Field {
     private int groupID;
     private int price;
     private int fieldID;
+    private int pos;
     private boolean isPrison;
     private boolean isPrisonVisit;
     private boolean isChance;
@@ -50,6 +51,8 @@ public class Field {
             isParking = Boolean.parseBoolean(prop.getProperty("isParking"));
 
             isStart = Boolean.parseBoolean(prop.getProperty("isStart"));
+
+            pos = Integer.parseInt(prop.getProperty("pos"));
 
 
         } catch (FileNotFoundException e){
@@ -120,5 +123,9 @@ public class Field {
 
     public boolean isStart() {
         return isStart;
+    }
+
+    public int getPos() {
+        return pos;
     }
 }
