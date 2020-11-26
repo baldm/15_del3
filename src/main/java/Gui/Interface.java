@@ -1,6 +1,7 @@
 package Gui;
 
 import Spil.Dice;
+import Spil.Field;
 import Spil.Player;
 import gui_fields.*;
 import gui_main.GUI;
@@ -24,10 +25,11 @@ public class Interface {
      * @param playerOne playerobject 1
      * @param playerTwo playerobject 2
      */
-    public static void createGui(Player playerOne, Player playerTwo) {
+
+    public static void createGui(Player playerOne, Player playerTwo, Field[] inputFields) {
 
         // Opretter gui elementet
-        gui = new GUI();
+        gui = new GUI(fieldFactory(inputFields), Color.WHITE);
 
         //Opretter spillere til spillet
         GUI_Car car = new GUI_Car();
@@ -41,6 +43,55 @@ public class Interface {
         gui.addPlayer(guiPlayerOne);
         gui.addPlayer(guiPlayerTwo);
 
+    }
+    public static GUI_Field[] fieldFactory(Field[] inputFields) {
+//        GUI_Field[] fields = {
+//                new GUI_Start(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//                new GUI_Chance(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//                new GUI_Jail(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//                new GUI_Chance(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//                new GUI_Refuge(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//                new GUI_Chance(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//                new GUI_Jail(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//                new GUI_Chance(),
+//                new GUI_Street(),
+//                new GUI_Street(),
+//        };
+        GUI_Field[] fields = new GUI_Field[inputFields.length];
+        for (int i = 0; i < inputFields.length; i++) {
+            fieldType = inputFields[i].getType();
+            switch(fieldType) {
+                case x:
+                    fields[i] = new GUI_Start(inputFields[i].getFieldName()); // input mere
+                    break;
+                case y:
+                    new GUI_Street(inputFields[i].getFieldName());
+                    break;
+                case z:
+                    new GUI_Chance(inputFields[i].getFieldName());
+                    break;
+                default:
+                    // code block
+            }
+
+        }
+
+
+        return fields;
     }
     // Intern funktion til at finde gui objectes spiller
     public static GUI_Player findGuiPlayer(Player player){
@@ -68,7 +119,7 @@ public class Interface {
      * @param message String
      */
     public static void displayMessage(String message) {
-        gui.showMessage("\n\n\n\n\n"+message);
+        gui.showMessage("\n\n\n"+message);
     }
 
     /**
