@@ -13,6 +13,12 @@ public class Field {
     private int groupID;
     private int price;
     private int fieldID;
+    private int pos;
+    private boolean isPrison;
+    private boolean isPrisonVisit;
+    private boolean isChance;
+    private boolean isParking;
+    private boolean isStart;
 
 
 
@@ -36,6 +42,17 @@ public class Field {
 
             rent = Integer.parseInt(prop.getProperty("rent"));
 
+            isPrison = Boolean.parseBoolean(prop.getProperty("isPrison"));
+
+            isPrisonVisit = Boolean.parseBoolean(prop.getProperty("isPrisonVisit"));
+
+            isChance = Boolean.parseBoolean(prop.getProperty("isChance"));
+
+            isParking = Boolean.parseBoolean(prop.getProperty("isParking"));
+
+            isStart = Boolean.parseBoolean(prop.getProperty("isStart"));
+
+            pos = Integer.parseInt(prop.getProperty("pos"));
 
 
         } catch (FileNotFoundException e){
@@ -66,7 +83,7 @@ public class Field {
     }
 
     public void isOwned(Player player) {
-        if(isOwned){
+        if(isOwned && !player.equals(owner)){
             if(owner.ownsboth(groupID)){
                 player.addMoney(- 2*rent);
                 owner.addMoney(2*rent);
@@ -88,4 +105,27 @@ public class Field {
         return fieldID;
     }
 
+    public boolean isChance() {
+        return isChance;
+    }
+
+    public boolean isParking() {
+        return isParking;
+    }
+
+    public boolean isPrisonVisit() {
+        return isPrisonVisit;
+    }
+
+    public boolean isPrison() {
+        return isPrison;
+    }
+
+    public boolean isStart() {
+        return isStart;
+    }
+
+    public int getPos() {
+        return pos;
+    }
 }
