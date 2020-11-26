@@ -64,4 +64,12 @@ public class Player {
             }
         }
     }
+
+    public boolean[] getOwnedFields() {
+        return ownedFields;
+    }
+
+    public boolean[] getOwnsboth() {
+        return ownsboth;
+    }
 }
