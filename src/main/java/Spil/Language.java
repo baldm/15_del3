@@ -27,6 +27,11 @@ public class Language {
     private String VANDLANDET;
     private String STRANDPROMENADEN;
 
+    private String FÆNGSELSBESØG;
+    private String CHANCE;
+    private String FÆNGSEL;
+    private String GRATISPARKERING;
+    private String START;
 
     public Language (String fileName) {
         try {
@@ -57,6 +62,13 @@ public class Language {
 
             VANDLANDET = prop.getProperty("VANDLANDET");
             STRANDPROMENADEN = prop.getProperty("STRANDPROMENADEN");
+
+            FÆNGSELSBESØG = prop.getProperty("FÆNGSELSBESØG");
+            CHANCE = prop.getProperty("CHANCE");
+            FÆNGSEL = prop.getProperty("FÆNGSEL");
+            GRATISPARKERING = prop.getProperty("GRATISPARKERING");
+            START = prop.getProperty("START");
+
 
 
 
@@ -118,6 +130,21 @@ public class Language {
 
             case "STRANDPROMENADEN":
                 return STRANDPROMENADEN;
+
+            case "FÆNGSELSBESØG":
+                return FÆNGSELSBESØG;
+
+            case "CHANCE":
+                return CHANCE;
+
+            case "FÆNGSEL":
+                return FÆNGSEL;
+
+            case "GRATISPARKERING":
+                return GRATISPARKERING;
+
+            case "START":
+                return START;
 
             default:
                 return "Error! Name not found!";
