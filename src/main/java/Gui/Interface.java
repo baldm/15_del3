@@ -72,6 +72,8 @@ public class Interface {
 //                new GUI_Street(),
 //        };
         GUI_Field[] fields = new GUI_Field[inputFields.length];
+
+        // WORK IN PROGRESS
         for (int i = 0; i < inputFields.length; i++) {
             fieldType = inputFields[i].getType();
             switch(fieldType) {
