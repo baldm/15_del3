@@ -38,7 +38,6 @@ public class FieldFactory {
 
         for(int i = 0; i <streetFields.length;i++){
             streetFields[i]=streetFieldsTemp[i];
-            System.out.println(streetFields[i].getFieldName());
         }
 
     }
