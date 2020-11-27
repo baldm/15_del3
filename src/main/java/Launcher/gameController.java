@@ -137,6 +137,7 @@ public class gameController {
         if (fieldList[player.getPosition()].isChance()) {
             drawCard(player, cardlist, streetFields);
         }
+        System.out.println(player.getMoney());
 
 
     }

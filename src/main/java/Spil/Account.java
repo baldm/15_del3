@@ -16,13 +16,10 @@ public class Account {
     public int getBalance(){ return this.balance; }
 
     //Tilføjer et beløb til balancen og checker om balancen er mindre end 0
-    public void addToBalance(int amount){ balance += amount; checkBalance(balance); }
+    public void addToBalance(int amount){ balance += amount;  }
 
 
     private void checkBalance(int balance){
-
-        //Hvis balancen er negativ bliver den sat til 0
-        if(balance < 0){ this.balance = 0; }
 
     }
 
