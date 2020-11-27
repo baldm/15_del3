@@ -91,19 +91,24 @@ public class Field {
     }
 
     public void isOwned(Player player) {
-        if(isOwned && !player.equals(owner)){
-            if(owner.ownsboth(groupID)){
-                player.addMoney(- 2*rent);
-                owner.addMoney(2*rent);
-                System.out.println("betalt 2 gang leje");
-            } else {
-                player.addMoney(- rent);
-                owner.addMoney(rent);
-                System.out.println("betalt 1 gang leje");
+        if(fieldID < 16) {
+            if(isOwned) {
+                if (!player.equals(owner)) {
+                    if (owner.ownsboth(groupID)) {
+                        player.addMoney(-2 * rent);
+                        owner.addMoney(2 * rent);
+                        System.out.println("betalt 2 gang leje");
+                    } else {
+                        player.addMoney(-rent);
+                        owner.addMoney(rent);
+                        System.out.println("betalt 1 gang leje");
+                    }
+                }
+            }else if (player.getMoney() >= price) {
+                setOwner(player);
             }
 
-        } else if(player.getMoney() >= price){
-            setOwner(player);
+
         }
     }
 
