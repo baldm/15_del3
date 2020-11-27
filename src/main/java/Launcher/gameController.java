@@ -78,7 +78,7 @@ public class gameController {
         // Initializing players
         playerlist = new Player[playerCount];
         for (int i = 0; i < playerCount; i++) {
-            playerlist[i] = new Player(playerNamelist[i], 2);
+            playerlist[i] = new Player(playerNamelist[i], 10);
         }
 
         // Initializing Fields
@@ -114,8 +114,8 @@ public class gameController {
                 takeTurn(playerlist[i], dice, fieldList, streetFields, chanceCards);
                 if (playerlist[i].getMoney() < 0) {
                     gameisover = true;
-                    Interface.displayMessage("GAME OVER!");
                     Interface.displayChance("GAME OVER!");
+                    Interface.refreshGui(playerlist);
                     break;
                 }
                 Interface.refreshGui(playerlist);
