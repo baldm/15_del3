@@ -117,7 +117,7 @@ public class Language {
             TUR = prop.getProperty("TUR");
             RULTERNING = prop.getProperty("RULTERNING");
             TRÆKCHANCEKORT = prop.getProperty("TRÆKCHANCEKORT");
-            RULTERNING = prop.getProperty("STARTHER");
+            RULTERNING = prop.getProperty("RULTERNING");
             PRIS = prop.getProperty("PRIS");
             CHANCEKORT = prop.getProperty("CHANCEKORT");
             TRÆKCHANCEKORT = prop.getProperty("PARKERING");
