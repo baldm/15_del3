@@ -1,15 +1,17 @@
 package Spil;
 
 public class FieldFactory {
-
+    private String[] fieldFileNames;
+    private Field[] allFields;
+    private Field[] allFieldsTemp;
 
     public FieldFactory(Language lang){
         fileScanner fieldScanner = new fileScanner("Fields");
 
 
-        String[] fieldFileNames = fieldScanner.getFieldNames();
-        Field[] allFields = new Field[fieldFileNames.length];
-        Field[] allFieldsTemp = new Field[fieldFileNames.length];
+        fieldFileNames = fieldScanner.getFieldNames();
+        allFields = new Field[fieldFileNames.length];
+        allFieldsTemp = new Field[fieldFileNames.length];
 
 
 
@@ -23,5 +25,9 @@ public class FieldFactory {
 
             allFields[allFieldsTemp[i].getPos()] = allFieldsTemp[i];
         }
+    }
+
+    public Field[] getAllFields() {
+        return allFields;
     }
 }
