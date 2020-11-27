@@ -8,7 +8,6 @@ public class FieldFactory {
     public FieldFactory(Language lang){
         fileScanner fieldScanner = new fileScanner("Fields");
 
-
         fieldFileNames = fieldScanner.getFieldNames();
         allFields = new Field[fieldFileNames.length];
         allFieldsTemp = new Field[fieldFileNames.length];
@@ -16,7 +15,7 @@ public class FieldFactory {
 
 
 
-        // Tjekker på dansk
+
         for(int i=0; i< fieldFileNames.length;i++){
 
             allFieldsTemp[i] = new Field(fieldFileNames[i], lang);
