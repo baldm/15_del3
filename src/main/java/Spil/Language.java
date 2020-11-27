@@ -57,6 +57,7 @@ public class Language {
     public String TRÆKCHANCEKORT;
     public String PARKERING;
     public String HERHARDUFRIPARKERING;
+    public String FÆNGSELTEKST;
 
 
 
@@ -123,6 +124,7 @@ public class Language {
             HERHARDUFRIPARKERING = prop.getProperty("HERHARDUFRIPARKERING");
             STARTHER = prop.getProperty("STARTHER");
             PARKERING = prop.getProperty("PARKERING");
+            FÆNGSELTEKST = prop.getProperty("FÆNGSEL");
 
         } catch (FileNotFoundException e){
 

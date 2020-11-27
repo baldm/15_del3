@@ -102,20 +102,20 @@ public class Interface {
             }
             switch(curField.getFieldType()) {
                 case "Start":
-                    fields[i] = new GUI_Start(curField.getFieldName(), "", "Her starter du", curColor, Color.BLACK);
+                    fields[i] = new GUI_Start(curField.getFieldName(), "", lang.STARTHER, curColor, Color.BLACK);
                     break;
                 case "Street":
-                    fields[i] = new GUI_Street(curField.getFieldName(), "Pris:"+curRent, "   ", curRent, curColor, Color.BLACK);
+                    fields[i] = new GUI_Street(curField.getFieldName(), lang.PRIS+curRent, "   ", curRent, curColor, Color.BLACK);
                     break;
                 case "Chance":
-                    fields[i] = new GUI_Chance("?", "Chancekort", lang., curColor, Color.BLACK);
+                    fields[i] = new GUI_Chance("?", lang.CHANCEKORT, lang.TRÆKCHANCEKORT, curColor, Color.BLACK);
                     break;
                 case "Jail":
                     fields[i] = new GUI_Jail();
-                    fields[i].setSubText("Fængsel");
+                    fields[i].setSubText(lang.FÆNGSELTEKST);
                     break;
                 case "Parking":
-                    fields[i] = new GUI_Refuge("./Images/parking.PNG", curField.getFieldName(), "Parkering", "Her kan du parkere gratis", curColor, Color.BLACK);
+                    fields[i] = new GUI_Refuge("./Images/parking.PNG", curField.getFieldName(), lang.PARKERING, lang.HERHARDUFRIPARKERING, curColor, Color.BLACK);
                     break;
                 default:
                     // Ikke muligt
