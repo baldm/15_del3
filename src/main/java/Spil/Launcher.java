@@ -117,7 +117,7 @@ public class Launcher {
     public static void takeTurn(Player player,Dice dice,Field[] fieldList){
         int newpos = player.getPosition() + dice.Roll();
         player.setPosition(newpos);
-        fieldList[newpos].isOwned(player);
+        fieldList[player.getPosition()].isOwned(player);
 
 
 
