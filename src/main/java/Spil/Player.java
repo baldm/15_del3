@@ -54,7 +54,7 @@ public class Player {
             position = newPos;
             if (position == 18) {
                 position = 6;
-                
+                isInJail = true;
             }
         }
     }
