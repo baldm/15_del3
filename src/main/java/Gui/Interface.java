@@ -50,6 +50,9 @@ public class Interface {
                 case 2:
                     car.setPrimaryColor(Color.YELLOW);
                     break;
+                case 3:
+                    car.setPrimaryColor(Color.GREEN);
+                    break;
             }
         }
 
