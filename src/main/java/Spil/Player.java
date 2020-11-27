@@ -9,6 +9,7 @@ public class Player {
     private String name;
     private final Account account = new Account(0);
     private int position = 0;
+    private boolean isInJail = false;
 
     private boolean[] ownsboth = new boolean[8];
 
@@ -96,5 +97,13 @@ public class Player {
         }
 
         return ownedArray;
+    }
+
+    public boolean isInJail() {
+        return isInJail;
+    }
+
+    public void setInJail(boolean inJail) {
+        isInJail = inJail;
     }
 }

@@ -84,6 +84,14 @@ public class Launcher {
 
         while(!gameisover){
             for(int i=0; i<playerCount;i++){
+                if(playerlist[i].isInJail()){
+                    playerlist[i].addMoney(-1);
+                    playerlist[i].setInJail(false);
+                    if(playerlist[i].getMoney() < 0){
+                        gameisover = true;
+                        break;
+                    }
+                }
                 System.out.println("It is " + playerlist[i].getName() + "'s turn");
                 System.out.println("Press enter to roll the dice");
                 input.next();
@@ -94,6 +102,7 @@ public class Launcher {
             }
 
             }
+            //UPDATE GUI
         }
 
         scoreboard = new int[playerCount];
