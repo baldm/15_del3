@@ -140,4 +140,6 @@ public class Field {
     }
 
     public String getFieldType() { return fieldType; }
+
+    public int getGroupID() { return groupID; }
 }

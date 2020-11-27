@@ -50,30 +50,60 @@ public class Interface {
 
         // WORK IN PROGRESS
         for (int i = 0; i < inputFields.length; i++) {
-            String fieldType = inputFields[i].getFieldType();
-            switch(fieldType) {
-                case "Start":
-                    fields[i] = new GUI_Start();
+            Field curField = inputFields[i];
+            Color curColor;
+            String curRent = String.valueOf(curField.getPrice());
+            System.out.println(curField.getFieldName());
+            switch (curField.getGroupID()) {
+                case 0:
+                    curColor = Color.getHSBColor(26,99,72);
                     break;
-                case "Street":
-                    new GUI_Street();
+                case 1:
+                    curColor = Color.CYAN;
                     break;
-                case "Chance":
-                    new GUI_Chance();
+                case 2:
+                    curColor = Color.getHSBColor(303,99,72);
                     break;
-                case "Jail":
-                    new GUI_Jail();
+                case 3:
+                    curColor = Color.ORANGE;
                     break;
-                case "Parking":
-                    new GUI_Refuge();
+                case 4:
+                    curColor = Color.RED;
+                    break;
+                case 5:
+                    curColor = Color.YELLOW;
+                    break;
+                case 6:
+                    curColor = Color.GREEN;
+                    break;
+                case 7:
+                    curColor = Color.BLUE;
                     break;
                 default:
-                    // code block
+                    curColor = Color.WHITE;
+
+            }
+            switch(curField.getFieldType()) {
+                case "Start":
+                    fields[i] = new GUI_Start(curField.getFieldName(), "", "Her starter du", curColor, Color.BLACK);
+                    break;
+                case "Street":
+                    fields[i] = new GUI_Street(curField.getFieldName(), "SUBTEXT", "DESCRIPTION", curRent, curColor, Color.BLACK);
+                    break;
+                case "Chance":
+                    fields[i] = new GUI_Chance();
+                    break;
+                case "Jail":
+                    fields[i] = new GUI_Jail();
+                    break;
+                case "Parking":
+                    fields[i] = new GUI_Refuge();
+                    break;
+                default:
+                    // What do
             }
 
         }
-
-
         return fields;
     }
     // Intern funktion til at finde gui objectes spiller
