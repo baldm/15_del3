@@ -65,4 +65,5 @@ public class ChanceCard {
     public int getMoveToGroupID() {
         return moveToGroupID;
     }
+    public String getCardText() {return cardText;}
 }

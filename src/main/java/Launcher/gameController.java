@@ -1,4 +1,5 @@
 package Launcher;
+import Gui.Interface;
 import Spil.*;
 
 import java.util.Scanner;
@@ -86,6 +87,8 @@ public class gameController {
         fieldList = fieldFactory.getAllFields();
         streetFields = fieldFactory.getStreetFields();
 
+        // Open gui
+        Interface.createGui(playerlist, fieldList, lang);
 
         // Initializing Chance Cards
         ChanceFactory chanceFactory = new ChanceFactory(lang);
@@ -106,20 +109,18 @@ public class gameController {
                         break;
                     }
                 }
-
-                System.out.println("It is " + playerlist[i].getName() + "'s turn");
-                System.out.println("Press enter to roll the dice");
-
-                input.nextLine();
+                Interface.displayMessage(lang.RULTERNING);
 
                 takeTurn(playerlist[i], dice, fieldList, streetFields, chanceCards);
                 if (playerlist[i].getMoney() < 0) {
                     gameisover = true;
+                    Interface.displayMessage("GAME OVER!");
+                    Interface.displayChance("GAME OVER!");
                     break;
                 }
+                Interface.refreshGui(playerlist);
 
             }
-            //UPDATE GUI
         }
 
         scoreboard = new int[playerCount];
@@ -131,13 +132,15 @@ public class gameController {
     }
 
     public static void takeTurn(Player player, Dice dice, Field[] fieldList, Field[] streetFields, ChanceCard[] cardlist) {
-        int newpos = player.getPosition() + dice.Roll();
+        int roll = dice.Roll();
+        int newpos = player.getPosition() + roll;
+        Interface.setBoardDice(roll);
         player.setPosition(newpos);
         fieldList[player.getPosition()].isOwned(player);
         if (fieldList[player.getPosition()].isChance()) {
             drawCard(player, cardlist, streetFields);
+
         }
-        System.out.println(player.getMoney());
 
 
     }
@@ -148,12 +151,13 @@ public class gameController {
 
         cardNumber = ThreadLocalRandom.current().nextInt(0, cardlist.length);
         card = cardlist[cardNumber];
-        if (card.getMoveToFieldID() <= 0) {
+        Interface.displayChance(card.getCardText());
+        if (card.getMoveToFieldID() >= 0) {
             player.setPosition(card.getMoveToFieldID());
         }
         player.setPosition(player.getPosition() + card.getMoveAmount());
         player.addMoney(card.getMoneyAmount());
-        if (card.getMoveToGroupID() <= 0){
+        if (card.getMoveToGroupID() >= 0){
             for (int i = 0; i < 2; i++) { ;
                 if (!streetFields[(card.getMoveToGroupID() * 2 + i)].getisOwned()) {
                     player.setPosition(streetFields[(card.getMoveToGroupID() * 2 + i)].getPos());
