@@ -94,6 +94,8 @@ public class Field {
                 System.out.println("betalt 1 gang leje");
             }
 
+        } else if(player.getMoney() >= price){
+            setOwner(player);
         }
     }
 
