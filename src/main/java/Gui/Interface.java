@@ -17,31 +17,47 @@ public class Interface {
     // Definering af variable
     // TODO: Fix adgangen til disser vars
     private static GUI gui;
-    private static GUI_Player guiPlayerOne;
-    private static GUI_Player guiPlayerTwo;
+    private static GUI_Player[] guiPlayerList;
+
 
     /**
      * Laver laver et gui element
-     * @param playerOne playerobject 1
-     * @param playerTwo playerobject 2
+     * @param playerList Liste over spillere
      */
 
-    public static void createGui(Player playerOne, Player playerTwo, Field[] inputFields) {
+    public static void createGui(Player[] playerList, Field[] inputFields) {
 
         // Opretter gui elementet
         gui = new GUI(guiFieldFactory(inputFields), Color.WHITE);
 
         //Opretter spillere til spillet
-        GUI_Car car = new GUI_Car();
-        car.setPrimaryColor(Color.BLUE);
-        guiPlayerOne = new GUI_Player(playerOne.getName(),1000, car);
-        GUI_Car car2 = new GUI_Car();
-        car2.setPrimaryColor(Color.YELLOW);
-        guiPlayerTwo = new GUI_Player(playerTwo.getName(),1000, car2);
+        guiPlayerList = new GUI_Player[playerList.length];
+
+        for (int i = 0; i < playerList.length; i++) {
+            Player curPlayer = playerList[i];
+            GUI_Car car = new GUI_Car();
+
+            guiPlayerList[i] = new GUI_Player(curPlayer.getName(),2, car);
+
+            switch (i) {
+                case 0:
+                    car.setPrimaryColor(Color.BLUE);
+                    break;
+                case 1:
+                    car.setPrimaryColor(Color.RED);
+                    break;
+                case 2:
+                    car.setPrimaryColor(Color.YELLOW);
+                    break;
+            }
+        }
 
         // Implementere spillet
-        gui.addPlayer(guiPlayerOne);
-        gui.addPlayer(guiPlayerTwo);
+        for (GUI_Player guiPlayer : guiPlayerList) {
+            gui.addPlayer(guiPlayer);
+        }
+
+
 
     }
     public static GUI_Field[] guiFieldFactory(Field[] inputFields) {
@@ -111,14 +127,10 @@ public class Interface {
     // Intern funktion til at finde gui objectes spiller
     public static GUI_Player findGuiPlayer(Player player){
         String playerName = player.getName();
-
-        if (playerName.equals(guiPlayerOne.getName())) {
-            return guiPlayerOne;
-        } else if (playerName.equals(guiPlayerTwo.getName())) {
-            return guiPlayerTwo;
-        } else {
-            throw new IllegalArgumentException("Player does not exist");
+        for (GUI_Player guiPlayer : guiPlayerList) {
+            if (playerName.equals(guiPlayer.getName())) {return guiPlayer;}
         }
+        return guiPlayerList[9001]; // Error handling
     }
     public static void refreshGui(Player[] players) {
         GUI_Field[] fields = gui.getFields();
@@ -132,13 +144,7 @@ public class Interface {
             movePlayer(player);
             setPlayerBalance(player);
             setOwned(player);
-
-
-
         }
-
-
-
     }
     // flyt eller fjern spiller object
     public static void movePlayer(Player player){
@@ -159,11 +165,10 @@ public class Interface {
 
     /**
      * Setter dice på boarded
-     * @param diceOne dice object 1
-     * @param diceTwo dice object 2
+     * @param roll dice object 1
      */
-    public static void setBoardDice(Dice diceOne, Dice diceTwo) {
-        gui.setDice(diceOne.getValue(), diceTwo.getValue());
+    public static void setBoardDice(int roll) {
+        gui.setDie(roll);
     }
 
     /**

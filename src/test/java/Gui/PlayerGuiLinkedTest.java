@@ -20,7 +20,7 @@ public class PlayerGuiLinkedTest {
         FieldFactory fieldFact = new FieldFactory(lang);
 
         // Forskellige metoder i interface
-        Interface.createGui(playerOne, playerTwo, fieldFact.getAllFields());
+        Interface.createGui(playerList, fieldFact.getAllFields());
 
         playerOne.setPosition(5);
         playerOne.setOwnedFields(7);
@@ -31,9 +31,9 @@ public class PlayerGuiLinkedTest {
             for (int i = 0; i < 2; i++) {
                 Player curPlayer = playerList[i];
 
-                Interface.displayMessage("Rul med dices:");
-                int roll = diceOne.Roll() + diceTwo.Roll();
-                Interface.setBoardDice(diceOne, diceTwo);
+                Interface.displayMessage("Rul med dice:");
+                int roll = diceOne.Roll();
+                Interface.setBoardDice(roll);
 
                 curPlayer.setPosition(curPlayer.getPosition() + roll);
                 Interface.refreshGui(playerList);
