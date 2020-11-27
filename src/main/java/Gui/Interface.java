@@ -53,7 +53,7 @@ public class Interface {
             Field curField = inputFields[i];
             Color curColor;
             String curRent = String.valueOf(curField.getPrice());
-            System.out.println(curField.getFieldName());
+
             switch (curField.getGroupID()) {
                 case 0:
                     curColor = Color.getHSBColor(26,99,72);
@@ -88,7 +88,7 @@ public class Interface {
                     fields[i] = new GUI_Start(curField.getFieldName(), "", "Her starter du", curColor, Color.BLACK);
                     break;
                 case "Street":
-                    fields[i] = new GUI_Street(curField.getFieldName(), "LEJE:"+curRent, "DESCRIPTION", curRent, curColor, Color.BLACK);
+                    fields[i] = new GUI_Street(curField.getFieldName(), "Pris:"+curRent, "   ", curRent, curColor, Color.BLACK);
                     break;
                 case "Chance":
                     fields[i] = new GUI_Chance();
@@ -106,6 +106,7 @@ public class Interface {
         }
         return fields;
     }
+
     // Intern funktion til at finde gui objectes spiller
     public static GUI_Player findGuiPlayer(Player player){
         String playerName = player.getName();
@@ -118,7 +119,23 @@ public class Interface {
             throw new IllegalArgumentException("Player does not exist");
         }
     }
+    public static void refreshGui(Player[] players) {
+        GUI_Field[] fields = gui.getFields();
+        for (GUI_Field field : fields) {
+            field.removeAllCars();
+        }
+        for (Player player : players) {
+            movePlayer(player);
+            setPlayerBalance(player);
+            setOwned(player);
 
+
+
+        }
+
+
+
+    }
     // flyt eller fjern spiller object
     public static void movePlayer(Player player){
         gui.getFields()[player.getPosition()].setCar(findGuiPlayer(player), true);
@@ -163,20 +180,28 @@ public class Interface {
     }
 
     public static void setOwned(Player player) {
-        GUI_Field field = gui.getFields()[player.getPosition()];
-        GUI_Ownable ownable = (GUI_Ownable) field;
-        ownable.setOwnerName(player.getName());
+        int[] ownedFields = player.getOwnedFieldsGui();
+        for (int fieldNumber : ownedFields) {
+            if (fieldNumber == 0) {continue;}
+
+            GUI_Field field = gui.getFields()[fieldNumber];
+            GUI_Ownable ownable = (GUI_Ownable) field;
+            ownable.setOwnerName(player.getName());
+
+            // Finder tallene i feltes pris, og derefter sætter rent som det samme
+            String subtext = field.getSubText();
+            String rent = subtext.replaceAll("[^0-9]", "");
+            ownable.setRent(rent);
+
+            ownable.setBorder(findGuiPlayer(player).getPrimaryColor());
+        }
+
 
         // Kode der måske skal bruges i voksen version
         //String rentChoice = displayMultiButtonMsg("Hvad skal lejen være?", "100", "200", "300", "400", "500");
         //ownable.setRent(rentChoice);
 
-        // Finder tallene i feltes pris, og derefter sætter rent som det samme
-        String subtext = field.getSubText();
-        String rent = subtext.replaceAll("[^0-9]", "");
-        ownable.setRent(rent);
 
-        ownable.setBorder(findGuiPlayer(player).getPrimaryColor());
 
     }
 

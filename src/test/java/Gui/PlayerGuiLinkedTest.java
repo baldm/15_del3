@@ -24,6 +24,9 @@ public class PlayerGuiLinkedTest {
 
         playerOne.setPosition(5);
         playerOne.addMoney(500);
+        playerOne.setOwnedFields(7);
+        playerOne.setOwnedFields(15);
+
 
         while (true) {
             for (int i = 0; i < 2; i++) {
@@ -34,6 +37,7 @@ public class PlayerGuiLinkedTest {
                 Interface.setBoardDice(diceOne, diceTwo);
 
                 curPlayer.setPosition(curPlayer.getPosition() + roll);
+                Interface.refreshGui(playerList);
 
             }
         }
