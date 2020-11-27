@@ -26,6 +26,7 @@ public class PlayerGuiLinkedTest {
         playerOne.setOwnedFields(7);
         playerOne.setOwnedFields(15);
 
+        Interface.displayChance("Chance");
 
         while (true) {
             for (int i = 0; i < 2; i++) {
