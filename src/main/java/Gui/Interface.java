@@ -141,6 +141,7 @@ public class Interface {
     public static void setPlayerBalance(Player player) {
         findGuiPlayer(player).setBalance(player.getMoney());
     }
+
     /**
      * displayer en besked på guien med et variable mængde valg
      * @param msg String
@@ -149,6 +150,7 @@ public class Interface {
     public static String displayMultiButtonMsg(String msg, String... args) {
         return gui.getUserSelection(msg, args);
     }
+
     public static void setOwned(Player player) {
         GUI_Field field = gui.getFields()[player.getPosition()];
         GUI_Ownable ownable = (GUI_Ownable) field;
