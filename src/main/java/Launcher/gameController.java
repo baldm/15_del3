@@ -1,8 +1,10 @@
-package Spil;
+package Launcher;
+import Spil.*;
+
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Launcher {
+public class gameController {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int playerCount = 0;
