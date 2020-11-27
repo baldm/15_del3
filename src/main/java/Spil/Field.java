@@ -14,11 +14,13 @@ public class Field {
     private int price;
     private int fieldID;
     private int pos;
+    private String fieldType;
     private boolean isPrison;
     private boolean isPrisonVisit;
     private boolean isChance;
     private boolean isParking;
     private boolean isStart;
+
 
 
 
@@ -54,6 +56,14 @@ public class Field {
 
             pos = Integer.parseInt(prop.getProperty("pos"));
 
+            /* Field Type ID's
+            START = 0
+            STREET = 1
+            CHANCE = 2
+            JAIL = 3
+            PARKING = 4
+             */
+            fieldType = prop.getProperty("name");
 
         } catch (FileNotFoundException e){
 
