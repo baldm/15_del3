@@ -45,8 +45,7 @@ public class Player {
 
     // Setter positionen af playeren
     public void setPosition(int newPos){
-        Interface.removePlayer(this);
-        if (newPos >= 40) {position = newPos - 40;}
+        if (newPos >= 24) {position = newPos - 24;}
         else { position = newPos; }
     }
 
