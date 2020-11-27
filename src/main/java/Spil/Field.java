@@ -56,22 +56,20 @@ public class Field {
 
             pos = Integer.parseInt(prop.getProperty("pos"));
 
-            /* Field Type ID's
-            START = 0
-            STREET = 1
-            CHANCE = 2
-            JAIL = 3
-            PARKING = 4
+            /* Field Type Strings's
+            Start,
+            Street,
+            Chance,
+            Jail,
+            Parking
              */
-            fieldType = prop.getProperty("name");
+            fieldType = prop.getProperty("fieldType");
 
         } catch (FileNotFoundException e){
 
         } catch (IOException e){
 
         }
-
-
 
     }
 
@@ -140,4 +138,6 @@ public class Field {
     public int getPos() {
         return pos;
     }
+
+    public String getFieldType() { return fieldType; }
 }
