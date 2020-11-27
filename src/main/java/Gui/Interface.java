@@ -188,6 +188,10 @@ public class Interface {
     public static String displayMultiButtonMsg(String msg, String... args) {
         return gui.getUserSelection(msg, args);
     }
+    public static void displayChance(String stringInput) {
+        gui.setChanceCard(stringInput);
+        gui.displayChanceCard(stringInput);
+    }
 
     public static void setOwned(Player player) {
         int[] ownedFields = player.getOwnedFieldsGui();
