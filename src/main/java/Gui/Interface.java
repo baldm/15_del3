@@ -48,12 +48,11 @@ public class Interface {
 
         GUI_Field[] fields = new GUI_Field[inputFields.length];
 
-        // WORK IN PROGRESS
+
         for (int i = 0; i < inputFields.length; i++) {
             Field curField = inputFields[i];
             Color curColor;
             String curRent = String.valueOf(curField.getPrice());
-            System.out.println(curField.getFieldName());
             switch (curField.getGroupID()) {
                 case 0:
                     curColor = Color.getHSBColor(26,99,72);
@@ -88,19 +87,19 @@ public class Interface {
                     fields[i] = new GUI_Start(curField.getFieldName(), "", "Her starter du", curColor, Color.BLACK);
                     break;
                 case "Street":
-                    fields[i] = new GUI_Street(curField.getFieldName(), "LEJE:"+curRent, "DESCRIPTION", curRent, curColor, Color.BLACK);
+                    fields[i] = new GUI_Street(curField.getFieldName(), "LEJE:"+curRent, "", curRent, curColor, Color.BLACK);
                     break;
                 case "Chance":
-                    fields[i] = new GUI_Chance();
+                    fields[i] = new GUI_Chance("?", "Chancekort", "Her trækker du et chancekort", curColor, Color.BLACK);
                     break;
                 case "Jail":
                     fields[i] = new GUI_Jail();
                     break;
                 case "Parking":
-                    fields[i] = new GUI_Refuge();
+                    fields[i] = new GUI_Refuge("./Images/parking.PNG", curField.getFieldName(), "Parkering", "Her kan du parkere gratis", curColor, Color.BLACK);
                     break;
                 default:
-                    // What do
+                    // Ikke muligt
             }
 
         }
