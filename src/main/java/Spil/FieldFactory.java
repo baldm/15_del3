@@ -5,7 +5,7 @@ public class FieldFactory {
     private Field[] allFields;
     private Field[] allFieldsTemp;
     private Field[] streetFields = new Field[16];
-    Field[] streetFieldsTemp;
+    private Field[] streetFieldsTemp;
 
     public FieldFactory(Language lang){
         fileScanner fieldScanner = new fileScanner("Fields");
@@ -27,8 +27,9 @@ public class FieldFactory {
 
             allFields[allFieldsTemp[i].getPos()] = allFieldsTemp[i];
         }
+        streetFieldsTemp = new Field[fieldFileNames.length];
         for(int i=0; i< fieldFileNames.length;i++){
-            streetFieldsTemp = new Field[fieldFileNames.length];
+
             streetFieldsTemp[allFields[i].getFieldID()] = allFields[i];
 
 
@@ -37,6 +38,7 @@ public class FieldFactory {
 
         for(int i = 0; i <streetFields.length;i++){
             streetFields[i]=streetFieldsTemp[i];
+            System.out.println(streetFields[i].getFieldName());
         }
 
     }

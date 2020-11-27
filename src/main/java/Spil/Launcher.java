@@ -44,7 +44,11 @@ public class Launcher {
 
         while (!choiceValid) {
             System.out.println("Angiv antal spillere mellem 2 og 4");
-            playerCount = Integer.parseInt(input.nextLine());
+            try {
+                playerCount = Integer.parseInt(input.nextLine());
+            }catch (NumberFormatException e){
+                playerCount = 0;
+            }
 
             switch (playerCount) {
                 case 2:
@@ -142,18 +146,17 @@ public class Launcher {
         int cardNumber;
         ChanceCard card;
 
-        cardNumber = ThreadLocalRandom.current().nextInt(0, cardlist.length + 1);
+        cardNumber = ThreadLocalRandom.current().nextInt(0, cardlist.length );
         card = cardlist[cardNumber];
-        if (card.getMoveToFieldID() <= 0) {
+        if (card.getMoveToFieldID() >= 0) {
             player.setPosition(card.getMoveToFieldID());
         }
         player.setPosition(player.getPosition() + card.getMoveAmount());
         player.addMoney(card.getMoneyAmount());
-        if (card.getMoveToGroupID() <= 0){
+        if (card.getMoveToGroupID() >= 0){
             for (int i = 0; i < 2; i++) {
                 if (!streetFields[(card.getMoveToGroupID() * 2 + i)].getisOwned()) {
                     player.setPosition(streetFields[(card.getMoveToGroupID() * 2 + i)].getPos());
-
                 }
             }
             if (player.getPosition() != card.getMoveToGroupID() * 2 && player.getPosition() != card.getMoveToGroupID() * 2 + 1) {
