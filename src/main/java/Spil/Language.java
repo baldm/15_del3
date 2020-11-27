@@ -121,6 +121,8 @@ public class Language {
             CHANCEKORT = prop.getProperty("CHANCEKORT");
             TRÆKCHANCEKORT = prop.getProperty("PARKERING");
             HERHARDUFRIPARKERING = prop.getProperty("HERHARDUFRIPARKERING");
+            STARTHER = prop.getProperty("STARTHER");
+            PARKERING = prop.getProperty("PARKERING");
 
         } catch (FileNotFoundException e){
 
