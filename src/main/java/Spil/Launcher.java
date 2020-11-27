@@ -94,7 +94,7 @@ public class Launcher {
                 }
                 System.out.println("It is " + playerlist[i].getName() + "'s turn");
                 System.out.println("Press enter to roll the dice");
-                input.next();
+                input.nextLine();
             takeTurn(playerlist[i],dice,fieldList);
             if(playerlist[i].getMoney() < 0){
                 gameisover = true;
