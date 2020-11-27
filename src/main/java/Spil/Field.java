@@ -14,11 +14,13 @@ public class Field {
     private int price;
     private int fieldID;
     private int pos;
+    private String fieldType;
     private boolean isPrison;
     private boolean isPrisonVisit;
     private boolean isChance;
     private boolean isParking;
     private boolean isStart;
+
 
 
 
@@ -54,14 +56,20 @@ public class Field {
 
             pos = Integer.parseInt(prop.getProperty("pos"));
 
+            /* Field Type Strings's
+            Start,
+            Street,
+            Chance,
+            Jail,
+            Parking
+             */
+            fieldType = prop.getProperty("fieldType");
 
         } catch (FileNotFoundException e){
 
         } catch (IOException e){
 
         }
-
-
 
     }
 
@@ -94,6 +102,8 @@ public class Field {
                 System.out.println("betalt 1 gang leje");
             }
 
+        } else if(player.getMoney() >= price){
+            setOwner(player);
         }
     }
 
@@ -128,4 +138,6 @@ public class Field {
     public int getPos() {
         return pos;
     }
+
+    public String getFieldType() { return fieldType; }
 }
