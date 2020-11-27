@@ -149,6 +149,7 @@ public class gameController {
     public static void drawCard(Player player, ChanceCard[] cardlist, Field[] streetFields) {
         int cardNumber;
         ChanceCard card;
+        int pos = player.getPosition();
 
         cardNumber = ThreadLocalRandom.current().nextInt(0, cardlist.length);
         card = cardlist[cardNumber];
@@ -156,7 +157,7 @@ public class gameController {
         if (card.getMoveToFieldID() >= 0) {
             player.setPosition(card.getMoveToFieldID());
         }
-        player.setPosition(player.getPosition() + card.getMoveAmount());
+        player.setPosition(pos + card.getMoveAmount());
         player.addMoney(card.getMoneyAmount());
         if (card.getMoveToGroupID() >= 0){
             for (int i = 0; i < 2; i++) { ;
