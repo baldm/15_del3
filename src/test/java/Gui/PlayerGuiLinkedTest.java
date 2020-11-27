@@ -8,8 +8,8 @@ import Spil.Player;
 public class PlayerGuiLinkedTest {
     public static void main(String[] args) {
         // Opretter players
-        Player playerOne = new Player("jonathan", 1000);
-        Player playerTwo = new Player("jens", 1000);
+        Player playerOne = new Player("jonathan", 2);
+        Player playerTwo = new Player("jens", 2);
         // Opretter dices
         Dice diceOne = new Dice(1);
         Dice diceTwo = new Dice(1);
