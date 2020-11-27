@@ -56,13 +56,13 @@ public class Interface {
 
             switch (curField.getGroupID()) {
                 case 0:
-                    curColor = Color.getHSBColor(26,99,72);
+                    curColor = Color.pink;
                     break;
                 case 1:
                     curColor = Color.CYAN;
                     break;
                 case 2:
-                    curColor = Color.getHSBColor(303,99,72);
+                    curColor = Color.MAGENTA;
                     break;
                 case 3:
                     curColor = Color.ORANGE;
@@ -95,6 +95,7 @@ public class Interface {
                     break;
                 case "Jail":
                     fields[i] = new GUI_Jail();
+                    fields[i].setSubText("Fængsel");
                     break;
                 case "Parking":
                     fields[i] = new GUI_Refuge("./Images/parking.PNG", curField.getFieldName(), "Parkering", "Her kan du parkere gratis", curColor, Color.BLACK);
@@ -186,6 +187,7 @@ public class Interface {
 
             GUI_Field field = gui.getFields()[fieldNumber];
             GUI_Ownable ownable = (GUI_Ownable) field;
+
             ownable.setOwnerName(player.getName());
 
             // Finder tallene i feltes pris, og derefter sætter rent som det samme

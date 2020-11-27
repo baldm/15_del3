@@ -49,7 +49,12 @@ public class Player {
             position = newPos - 24;
             addMoney(2);
         }
-        else { position = newPos; }
+        else {
+            position = newPos;
+            if (position == 18) {
+                
+            }
+        }
     }
 
     public boolean ownsboth(int groupID) {

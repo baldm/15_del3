@@ -23,7 +23,6 @@ public class PlayerGuiLinkedTest {
         Interface.createGui(playerOne, playerTwo, fieldFact.getAllFields());
 
         playerOne.setPosition(5);
-        playerOne.addMoney(500);
         playerOne.setOwnedFields(7);
         playerOne.setOwnedFields(15);
 
