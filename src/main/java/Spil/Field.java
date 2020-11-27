@@ -147,4 +147,8 @@ public class Field {
     public String getFieldType() { return fieldType; }
 
     public int getGroupID() { return groupID; }
+
+    public boolean getisOwned() {
+        return isOwned;
+    }
 }
