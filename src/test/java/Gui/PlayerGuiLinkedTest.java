@@ -16,7 +16,7 @@ public class PlayerGuiLinkedTest {
 
         // Opretter player List
         Player[] playerList = new Player[]{playerOne,playerTwo};
-        Language lang = new Language("Danish.properties");
+        Language lang = new Language("English.properties");
         FieldFactory fieldFact = new FieldFactory(lang);
 
         // Forskellige metoder i interface

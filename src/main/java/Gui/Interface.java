@@ -88,7 +88,7 @@ public class Interface {
                     fields[i] = new GUI_Start(curField.getFieldName(), "", "Her starter du", curColor, Color.BLACK);
                     break;
                 case "Street":
-                    fields[i] = new GUI_Street(curField.getFieldName(), "SUBTEXT", "DESCRIPTION", curRent, curColor, Color.BLACK);
+                    fields[i] = new GUI_Street(curField.getFieldName(), "LEJE:"+curRent, "DESCRIPTION", curRent, curColor, Color.BLACK);
                     break;
                 case "Chance":
                     fields[i] = new GUI_Chance();
