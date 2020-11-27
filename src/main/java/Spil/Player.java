@@ -45,8 +45,16 @@ public class Player {
 
     // Setter positionen af playeren
     public void setPosition(int newPos){
-        if (newPos >= 24) {position = newPos - 24;}
-        else { position = newPos; }
+        if (newPos >= 24) {
+            position = newPos - 24;
+            addMoney(2);
+        }
+        else {
+            position = newPos;
+            if (position == 18) {
+                
+            }
+        }
     }
 
     public boolean ownsboth(int groupID) {
@@ -68,5 +76,25 @@ public class Player {
 
     public boolean[] getOwnsboth() {
         return ownsboth;
+    }
+
+    public int[] getOwnedFieldsGui() {
+        boolean[] boolArray = getOwnedFields();
+        int[] ownedArray = new int[24];
+        int ownedCount = 0;
+        for (int i = 0; i < ownedArray.length; i++)  {
+            if (i == 0 || i == 3|| i == 6 || i == 9|| i == 12 || i == 15|| i == 18 || i == 21)
+                {ownedArray[i] = 0;}
+            else {
+                if (boolArray[ownedCount]) {
+                    ownedArray[i] = i;
+                    ownedCount++;
+                } else {ownedArray[i] = 0; ownedCount++;}
+
+            }
+
+        }
+
+        return ownedArray;
     }
 }
