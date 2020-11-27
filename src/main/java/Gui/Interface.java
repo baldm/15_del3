@@ -2,6 +2,7 @@ package Gui;
 
 import Spil.Dice;
 import Spil.Field;
+import Spil.Language;
 import Spil.Player;
 import gui_fields.*;
 import gui_main.GUI;
@@ -25,10 +26,10 @@ public class Interface {
      * @param playerList Liste over spillere
      */
 
-    public static void createGui(Player[] playerList, Field[] inputFields) {
+    public static void createGui(Player[] playerList, Field[] inputFields, Language lang) {
 
         // Opretter gui elementet
-        gui = new GUI(guiFieldFactory(inputFields), Color.WHITE);
+        gui = new GUI(guiFieldFactory(inputFields, lang), Color.WHITE);
 
         //Opretter spillere til spillet
         guiPlayerList = new GUI_Player[playerList.length];
@@ -60,7 +61,7 @@ public class Interface {
 
 
     }
-    public static GUI_Field[] guiFieldFactory(Field[] inputFields) {
+    public static GUI_Field[] guiFieldFactory(Field[] inputFields, Language lang) {
 
         GUI_Field[] fields = new GUI_Field[inputFields.length];
 
@@ -107,7 +108,7 @@ public class Interface {
                     fields[i] = new GUI_Street(curField.getFieldName(), "Pris:"+curRent, "   ", curRent, curColor, Color.BLACK);
                     break;
                 case "Chance":
-                    fields[i] = new GUI_Chance("?", "Chancekort", "Her trækker du et chancekort", curColor, Color.BLACK);
+                    fields[i] = new GUI_Chance("?", "Chancekort", lang., curColor, Color.BLACK);
                     break;
                 case "Jail":
                     fields[i] = new GUI_Jail();

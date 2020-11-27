@@ -20,7 +20,7 @@ public class PlayerGuiLinkedTest {
         FieldFactory fieldFact = new FieldFactory(lang);
 
         // Forskellige metoder i interface
-        Interface.createGui(playerList, fieldFact.getAllFields());
+        Interface.createGui(playerList, fieldFact.getAllFields(), lang);
 
         playerOne.setPosition(5);
         playerOne.setOwnedFields(7);
