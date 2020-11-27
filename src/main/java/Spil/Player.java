@@ -26,7 +26,6 @@ public class Player {
     // Tilføjer penge til nuværende formue
     public void addMoney(int p_money){
         account.addToBalance(p_money);
-        Interface.setPlayerBalance(this);
     }
 
     // Retunerer navn
@@ -46,10 +45,8 @@ public class Player {
 
     // Setter positionen af playeren
     public void setPosition(int newPos){
-        Interface.removePlayer(this);
         if (newPos >= 24) {position = newPos - 24;}
         else { position = newPos; }
-        Interface.movePlayer(this);
     }
 
     public boolean ownsboth(int groupID) {
@@ -63,5 +60,13 @@ public class Player {
                 ownsboth[k] = true;
             }
         }
+    }
+
+    public boolean[] getOwnedFields() {
+        return ownedFields;
+    }
+
+    public boolean[] getOwnsboth() {
+        return ownsboth;
     }
 }
