@@ -136,11 +136,12 @@ public class gameController {
         int newpos = player.getPosition() + roll;
         Interface.setBoardDice(roll);
         player.setPosition(newpos);
-        fieldList[player.getPosition()].isOwned(player);
+
         if (fieldList[player.getPosition()].isChance()) {
             drawCard(player, cardlist, streetFields);
 
         }
+        fieldList[player.getPosition()].isOwned(player);
 
 
     }
