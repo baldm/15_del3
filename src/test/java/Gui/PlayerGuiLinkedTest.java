@@ -1,6 +1,8 @@
 package Gui;
 
 import Spil.Dice;
+import Spil.FieldFactory;
+import Spil.Language;
 import Spil.Player;
 
 public class PlayerGuiLinkedTest {
@@ -14,9 +16,11 @@ public class PlayerGuiLinkedTest {
 
         // Opretter player List
         Player[] playerList = new Player[]{playerOne,playerTwo};
+        Language lang = new Language("Danish.properties");
+        FieldFactory fieldFact = new FieldFactory(lang);
 
         // Forskellige metoder i interface
-        Interface.createGui(playerOne, playerTwo);
+        Interface.createGui(playerOne, playerTwo, fieldFact.getAllFields());
 
         playerOne.setPosition(5);
         playerOne.addMoney(500);

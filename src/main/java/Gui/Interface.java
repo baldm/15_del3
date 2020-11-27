@@ -29,7 +29,7 @@ public class Interface {
     public static void createGui(Player playerOne, Player playerTwo, Field[] inputFields) {
 
         // Opretter gui elementet
-        gui = new GUI(fieldFactory(inputFields), Color.WHITE);
+        gui = new GUI(guiFieldFactory(inputFields), Color.WHITE);
 
         //Opretter spillere til spillet
         GUI_Car car = new GUI_Car();
@@ -44,47 +44,28 @@ public class Interface {
         gui.addPlayer(guiPlayerTwo);
 
     }
-    public static GUI_Field[] fieldFactory(Field[] inputFields) {
-//        GUI_Field[] fields = {
-//                new GUI_Start(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//                new GUI_Chance(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//                new GUI_Jail(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//                new GUI_Chance(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//                new GUI_Refuge(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//                new GUI_Chance(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//                new GUI_Jail(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//                new GUI_Chance(),
-//                new GUI_Street(),
-//                new GUI_Street(),
-//        };
+    public static GUI_Field[] guiFieldFactory(Field[] inputFields) {
+
         GUI_Field[] fields = new GUI_Field[inputFields.length];
 
         // WORK IN PROGRESS
         for (int i = 0; i < inputFields.length; i++) {
-            fieldType = inputFields[i].getType();
+            String fieldType = inputFields[i].getFieldType();
             switch(fieldType) {
-                case x:
-                    fields[i] = new GUI_Start(inputFields[i].getFieldName()); // input mere
+                case "Start":
+                    fields[i] = new GUI_Start();
                     break;
-                case y:
-                    new GUI_Street(inputFields[i].getFieldName());
+                case "Street":
+                    new GUI_Street();
                     break;
-                case z:
-                    new GUI_Chance(inputFields[i].getFieldName());
+                case "Chance":
+                    new GUI_Chance();
+                    break;
+                case "Jail":
+                    new GUI_Jail();
+                    break;
+                case "Parking":
+                    new GUI_Refuge();
                     break;
                 default:
                     // code block
