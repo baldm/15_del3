@@ -48,7 +48,7 @@ public class Interface {
 
         GUI_Field[] fields = new GUI_Field[inputFields.length];
 
-        // WORK IN PROGRESS
+
         for (int i = 0; i < inputFields.length; i++) {
             Field curField = inputFields[i];
             Color curColor;
@@ -91,16 +91,16 @@ public class Interface {
                     fields[i] = new GUI_Street(curField.getFieldName(), "Pris:"+curRent, "   ", curRent, curColor, Color.BLACK);
                     break;
                 case "Chance":
-                    fields[i] = new GUI_Chance();
+                    fields[i] = new GUI_Chance("?", "Chancekort", "Her trækker du et chancekort", curColor, Color.BLACK);
                     break;
                 case "Jail":
                     fields[i] = new GUI_Jail();
                     break;
                 case "Parking":
-                    fields[i] = new GUI_Refuge();
+                    fields[i] = new GUI_Refuge("./Images/parking.PNG", curField.getFieldName(), "Parkering", "Her kan du parkere gratis", curColor, Color.BLACK);
                     break;
                 default:
-                    // What do
+                    // Ikke muligt
             }
 
         }
