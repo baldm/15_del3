@@ -44,6 +44,20 @@ public class Language {
     private String chance8;
     private String chance9;
 
+    public String ANTALSPILLER;
+    public String FORKERTNUMMER;
+    public String NAVN;
+    public String ANGIVSPILLER;
+    public String DETER;
+    public String TUR;
+    public String RULTERNING;
+    public String STARTHER;
+    public String PRIS;
+    public String CHANCEKORT;
+    public String TRÆKCHANCEKORT;
+    public String PARKERING;
+    public String HERHARDUFRIPARKERING;
+
 
 
 
@@ -94,11 +108,19 @@ public class Language {
             chance8 = prop.getProperty("chance8");
             chance9 = prop.getProperty("chance9");
 
-
-
-
-
-
+            ANTALSPILLER = prop.getProperty("ANTALSPILLER");
+            FORKERTNUMMER = prop.getProperty("FORKERTNUMMER");
+            NAVN = prop.getProperty("NAVN");
+            ANGIVSPILLER = prop.getProperty("ANGIVSPILLER");
+            DETER = prop.getProperty("DETER");
+            TUR = prop.getProperty("TUR");
+            RULTERNING = prop.getProperty("RULTERNING");
+            TRÆKCHANCEKORT = prop.getProperty("TRÆKCHANCEKORT");
+            RULTERNING = prop.getProperty("STARTHER");
+            PRIS = prop.getProperty("PRIS");
+            CHANCEKORT = prop.getProperty("CHANCEKORT");
+            TRÆKCHANCEKORT = prop.getProperty("PARKERING");
+            HERHARDUFRIPARKERING = prop.getProperty("HERHARDUFRIPARKERING");
 
         } catch (FileNotFoundException e){
 
