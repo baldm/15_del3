@@ -14,6 +14,7 @@ public class ChanceCard {
     private int MoneyAmount;
     private int moveToFieldID;
     private int moveToGroupID;
+    private String cardText;
 
 
     public ChanceCard(String fileName, Language language){
@@ -31,6 +32,8 @@ public class ChanceCard {
             MoneyAmount = Integer.parseInt(prop.getProperty("MoneyAmount"));
             moveToFieldID = Integer.parseInt(prop.getProperty("moveToFieldID"));
             moveToGroupID = Integer.parseInt(prop.getProperty("moveToGroupID"));
+
+            cardText=language.getChanceText(cardID);
 
 
         } catch (FileNotFoundException e){

@@ -33,6 +33,34 @@ public class Language {
     private String GRATISPARKERING;
     private String START;
 
+    private String chance0;
+    private String chance1;
+    private String chance2;
+    private String chance3;
+    private String chance4;
+    private String chance5;
+    private String chance6;
+    private String chance7;
+    private String chance8;
+    private String chance9;
+
+    public String ANTALSPILLER;
+    public String FORKERTNUMMER;
+    public String NAVN;
+    public String ANGIVSPILLER;
+    public String DETER;
+    public String TUR;
+    public String RULTERNING;
+    public String STARTHER;
+    public String PRIS;
+    public String CHANCEKORT;
+    public String TRÆKCHANCEKORT;
+    public String PARKERING;
+    public String HERHARDUFRIPARKERING;
+
+
+
+
     public Language (String fileName) {
         try {
             FileInputStream input = new FileInputStream("./Languages/" + fileName);
@@ -69,9 +97,32 @@ public class Language {
             GRATISPARKERING = prop.getProperty("GRATISPARKERING");
             START = prop.getProperty("START");
 
+            chance0 = prop.getProperty("chance0");
+            chance1 = prop.getProperty("chance1");
+            chance2 = prop.getProperty("chance2");
+            chance3 = prop.getProperty("chance3");
+            chance4 = prop.getProperty("chance4");
+            chance5 = prop.getProperty("chance5");
+            chance6 = prop.getProperty("chance6");
+            chance7 = prop.getProperty("chance7");
+            chance8 = prop.getProperty("chance8");
+            chance9 = prop.getProperty("chance9");
 
-
-
+            ANTALSPILLER = prop.getProperty("ANTALSPILLER");
+            FORKERTNUMMER = prop.getProperty("FORKERTNUMMER");
+            NAVN = prop.getProperty("NAVN");
+            ANGIVSPILLER = prop.getProperty("ANGIVSPILLER");
+            DETER = prop.getProperty("DETER");
+            TUR = prop.getProperty("TUR");
+            RULTERNING = prop.getProperty("RULTERNING");
+            TRÆKCHANCEKORT = prop.getProperty("TRÆKCHANCEKORT");
+            RULTERNING = prop.getProperty("STARTHER");
+            PRIS = prop.getProperty("PRIS");
+            CHANCEKORT = prop.getProperty("CHANCEKORT");
+            TRÆKCHANCEKORT = prop.getProperty("PARKERING");
+            HERHARDUFRIPARKERING = prop.getProperty("HERHARDUFRIPARKERING");
+            STARTHER = prop.getProperty("STARTHER");
+            PARKERING = prop.getProperty("PARKERING");
 
         } catch (FileNotFoundException e){
 
@@ -151,7 +202,32 @@ public class Language {
         }
 
     }
-
+    public String getChanceText(int chanceNumber) {
+        switch (chanceNumber) {
+            case 0:
+                return chance0;
+            case 1:
+                return chance1;
+            case 2:
+                return chance2;
+            case 3:
+                return chance3;
+            case 4:
+                return chance4;
+            case 5:
+                return chance5;
+            case 6:
+                return chance6;
+            case 7:
+                return chance7;
+            case 8:
+                return chance8;
+            case 9:
+                return chance9;
+            default:
+                return chance0;
+        }
+    }
     public String getLanguage() {
         return language;
     }

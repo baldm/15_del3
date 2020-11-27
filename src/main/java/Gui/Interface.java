@@ -135,6 +135,9 @@ public class Interface {
     }
     public static void refreshGui(Player[] players) {
         GUI_Field[] fields = gui.getFields();
+
+        // FIXME: Alle biler der ikke ryger i fængsel bliver gemt når en bil ryger i fængsel
+        // Fjerne alle biler fra banen
         for (GUI_Field field : fields) {
             field.removeAllCars();
         }
@@ -146,8 +149,9 @@ public class Interface {
     }
     // flyt eller fjern spiller object
     public static void movePlayer(Player player){
-        gui.getFields()[player.getPosition()].setCar(findGuiPlayer(player), true);
-    }
+            gui.getFields()[player.getPosition()].setCar(findGuiPlayer(player), true);
+        }
+
     public static void removePlayer(Player player) {
         gui.getFields()[player.getPosition()].setCar(findGuiPlayer(player), false);
     }
