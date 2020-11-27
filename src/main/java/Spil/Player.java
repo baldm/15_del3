@@ -52,6 +52,7 @@ public class Player {
         else {
             position = newPos;
             if (position == 18) {
+                position = 6;
                 
             }
         }

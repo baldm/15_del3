@@ -37,7 +37,6 @@ public class PlayerGuiLinkedTest {
 
                 curPlayer.setPosition(curPlayer.getPosition() + roll);
                 Interface.refreshGui(playerList);
-
             }
         }
     }
