@@ -5,7 +5,9 @@ public class ChanceFactory {
     private ChanceCard[] cards;
 
 
-    public void FieldFactory(Language lang) {
+
+
+    public ChanceFactory(Language lang) {
         fileScanner cardScanner = new fileScanner("ChanceCards");
 
         cardNames = cardScanner.getFieldNames();
