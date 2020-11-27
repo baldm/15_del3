@@ -86,6 +86,7 @@ public class gameController {
         fieldList = fieldFactory.getAllFields();
         streetFields = fieldFactory.getStreetFields();
 
+
         // Initializing Chance Cards
         ChanceFactory chanceFactory = new ChanceFactory(lang);
         chanceCards = chanceFactory.getCards();
@@ -144,7 +145,7 @@ public class gameController {
         int cardNumber;
         ChanceCard card;
 
-        cardNumber = ThreadLocalRandom.current().nextInt(0, cardlist.length + 1);
+        cardNumber = ThreadLocalRandom.current().nextInt(0, cardlist.length);
         card = cardlist[cardNumber];
         if (card.getMoveToFieldID() <= 0) {
             player.setPosition(card.getMoveToFieldID());
@@ -152,7 +153,7 @@ public class gameController {
         player.setPosition(player.getPosition() + card.getMoveAmount());
         player.addMoney(card.getMoneyAmount());
         if (card.getMoveToGroupID() <= 0){
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 2; i++) { ;
                 if (!streetFields[(card.getMoveToGroupID() * 2 + i)].getisOwned()) {
                     player.setPosition(streetFields[(card.getMoveToGroupID() * 2 + i)].getPos());
 
