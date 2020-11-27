@@ -20,11 +20,13 @@ public class Field {
     private boolean isChance;
     private boolean isParking;
     private boolean isStart;
+    private Language lang;
 
 
 
 
     public Field(String fileName, Language language){
+        lang = language;
         try {
             FileInputStream input = new FileInputStream("./Fields/"+ fileName);
 
@@ -97,11 +99,12 @@ public class Field {
                     if (owner.ownsboth(groupID)) {
                         player.addMoney(-2 * rent);
                         owner.addMoney(2 * rent);
-                        System.out.println("betalt 2 gang leje");
+                        System.out.println(lang.betalt1 + (2*rent) + lang.betalt2 +" "+ owner.getName());
                     } else {
                         player.addMoney(-rent);
                         owner.addMoney(rent);
-                        System.out.println("betalt 1 gang leje");
+                        System.out.println(lang.betalt1 + (rent)+ lang.betalt2 +" "+ owner.getName());
+
                     }
                 }
             }else if (player.getMoney() >= price) {

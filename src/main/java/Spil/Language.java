@@ -59,6 +59,9 @@ public class Language {
     public String HERHARDUFRIPARKERING;
     public String FÆNGSELTEKST;
 
+    public String betalt1;
+    public String betalt2;
+
 
 
 
@@ -125,6 +128,9 @@ public class Language {
             STARTHER = prop.getProperty("STARTHER");
             PARKERING = prop.getProperty("PARKERING");
             FÆNGSELTEKST = prop.getProperty("FÆNGSEL");
+
+            betalt1 = prop.getProperty("betalt1");
+            betalt2 = prop.getProperty("betalt2");
 
         } catch (FileNotFoundException e){
 
