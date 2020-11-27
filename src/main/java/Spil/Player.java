@@ -26,7 +26,6 @@ public class Player {
     // Tilføjer penge til nuværende formue
     public void addMoney(int p_money){
         account.addToBalance(p_money);
-        Interface.setPlayerBalance(this);
     }
 
     // Retunerer navn
@@ -49,7 +48,6 @@ public class Player {
         Interface.removePlayer(this);
         if (newPos >= 40) {position = newPos - 40;}
         else { position = newPos; }
-        Interface.movePlayer(this);
     }
 
     public boolean ownsboth(int groupID) {
