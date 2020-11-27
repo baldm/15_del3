@@ -45,7 +45,10 @@ public class Player {
 
     // Setter positionen af playeren
     public void setPosition(int newPos){
-        if (newPos >= 24) {position = newPos - 24;}
+        if (newPos >= 24) {
+            position = newPos - 24;
+            addMoney(2);
+        }
         else { position = newPos; }
     }
 
