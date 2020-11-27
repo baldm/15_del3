@@ -11,6 +11,7 @@ public class Launcher {
         Player[] playerlist;
         Dice dice = new Dice(1);
         Field[] fieldList;
+        int[] scoreboard;
 
 
          //Choose language
@@ -83,17 +84,32 @@ public class Launcher {
 
         while(!gameisover){
             for(int i=0; i<playerCount;i++){
+                System.out.println("It is " + playerlist[i].getName() + "'s turn");
+                System.out.println("Press enter to roll the dice");
+                input.next();
             takeTurn(playerlist[i],dice,fieldList);
+            if(playerlist[i].getMoney() < 0){
+                gameisover = true;
+                break;
+            }
 
             }
         }
 
+        scoreboard = new int[playerCount];
+        for(int i=0; i< playerCount;i++){
+
+        }
+
+
 
 
     }
-    public void takeTurn(Player player,Dice dice,Field[] fieldList){
+    public static void takeTurn(Player player,Dice dice,Field[] fieldList){
         int newpos = player.getPosition() + dice.Roll();
         player.setPosition(newpos);
+        fieldList[newpos].isOwned(player);
+
 
 
 
